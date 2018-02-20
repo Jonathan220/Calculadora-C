@@ -15,16 +15,23 @@ void menu(float x){
 	printf("\n6 - Sair");
 }
 
+//opção de soma
 float soma(float s){
 	
-	float total = s;
+	float total = s; // total recebe valor de entrada
 	float entr = 1;
 
 	while(entr >= 1){
+		
 		printf("Para encerrar digite um número negativo: \n");
 		printf("Insira o valor:");
-		scanf("%f", &entr);
-		if(entr>=0)
+		
+		if(scanf("%f", &entr) == 0){
+			printf("Opção incorreta\n");
+			break;
+		}
+			
+		if(entr>=0) //verifica se o valor é negativo antes de realizar a adição
 			total += entr;
 	}
 
@@ -40,7 +47,12 @@ int main(int argc, char const *argv[])
 	while(condicao >= 0){
 		menu(entrada);
 		printf("\nOpção: ");
-		scanf("%d", &condicao);
+		
+		if(scanf("%d", &condicao) == 0){
+			printf("Opção incorreta\n");
+			break;
+		}
+
 
 		//Toda opção deverá retornar um valor para 
 		//'entrada'
